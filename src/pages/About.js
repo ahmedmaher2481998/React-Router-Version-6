@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, Link } from "react-router-dom";
+import { Route, Routes, Navigate, Link, useNavigate } from "react-router-dom";
 
 // nested routes
 import Offers from "./Offers";
@@ -6,12 +6,22 @@ import Products from "./Products";
 
 export default function About() {
 	const redirect = true;
+	const navigate = useNavigate();
+	const handlehome = () => {
+		navigate("/");
+	};
+	const handlepro = () => {
+		navigate("/products");
+	};
 	return (
 		<div className='content'>
 			<h2>About Us</h2>
 			<Link to={"offers"}>
 				<button>offers</button>
 			</Link>
+
+			<button onClick={handlepro}> go Products</button>
+			<button onClick={handlehome}>go Home</button>
 
 			<p>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
